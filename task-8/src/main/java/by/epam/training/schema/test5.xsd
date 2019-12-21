@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="event" type="Event"/>
+    <xs:complexType name="Event">
+        <xs:sequence>
+            <xs:element name="heading" type="Heading" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name="external-link" type="ExternalLink"/>
+            <xs:element name="doc-level" type="DocLevel" minOccurs="2" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="Heading">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="type" type="HeadingEnumeration" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:simpleType name="HeadingEnumeration">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="title"/>
+            <xs:enumeration value="title-footer"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="ExternalLink">
+        <xs:attribute name="source" type="xs:anyURI" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="DocLevel">
+        <xs:sequence>
+            <xs:element name="doc-level" type="DocLevel" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="para" type="Para" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="h1" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="position" type="PositionEnumeration"/>
+        <xs:attribute name="type" type="xs:string" fixed="redbox"/>
+    </xs:complexType>
+    <xs:simpleType name="PositionEnumeration">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="right"/>
+            <xs:enumeration value="left"/>
+            <xs:enumeration value="center"/>
+            <xs:enumeration value="centered"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="Para" mixed="true">
+        <xs:sequence>
+            <xs:element name="date" type="FormattedDate" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="image" type="Image" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="list-item" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType mixed="true">
+                    <xs:sequence>
+                        <xs:element name="para" type="Para" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="num" type="xs:gYear" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="type" type="ParaTypeEnumeration" use="required"/>
+        <xs:attribute name="style" type="ParaStyleEnumeration"/>
+    </xs:complexType>
+    <xs:simpleType name="ParaStyleEnumeration">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="square"/>
+            <xs:enumeration value="circle"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ParaTypeEnumeration">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="text"/>
+            <xs:enumeration value="comment"/>
+            <xs:enumeration value="image"/>
+            <xs:enumeration value="unordered-list"/>
+            <xs:enumeration value="num"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="Image">
+        <xs:attribute name="source" type="ImageSource" use="required"/>
+        <xs:attribute name="description" type="xs:string" use="required"/>
+    </xs:complexType>
+    <xs:simpleType name="FormattedDate">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(([0-2]\d)|[3][0-1]|([1-9]?))/(([0]\d)|([1][0-2])|([1-9]?))/\d{1,4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ImageSource">
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".+\.(jpg|png)"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

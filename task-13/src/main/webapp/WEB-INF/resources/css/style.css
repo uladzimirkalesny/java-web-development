@@ -1,0 +1,161 @@
+header {
+    color: #666666;
+    padding-top: 15px;
+    background-color: #f8f8f8;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 150px;
+}
+
+.logotype img {
+    height: 64px;
+    width: 64px;
+    margin-bottom: 15px;
+    filter: grayscale(100%);
+}
+
+.descript h4 {
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.descript h5 {
+    font-size: 15px;
+}
+
+.buttons {
+    margin-top: 3px;
+}
+
+#start {
+    padding-top: 35px;
+}
+
+.logotype-color img {
+    height: 128px;
+    width: 128px;
+}
+
+.about-app h1 {
+    padding-top: 30px;
+}
+
+.unknown h1, h3 {
+    padding-top: 130px;
+}
+
+.about-app span {
+    text-transform: uppercase;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #f8f8f8;
+}
+
+.details {
+    margin-top: 20px;
+}
+
+.social {
+    margin-top: 15px;
+}
+
+.contacts p {
+    margin-top: 10px;
+}
+
+.creator {
+    margin-top: 25px;
+}
+
+.creator a {
+    color: #666666;
+}
+
+.bitbucket {
+    width: 25px;
+    height: 25px;
+}
+
+.gmail {
+    width: 28px;
+    height: 28px;
+}
+
+.linkedin {
+    margin-left: -1px;
+    width: 30px;
+    height: 30px;
+}
+
+.skype {
+    margin-left: -3px;
+    height: 25px;
+    width: 25px;
+}
+
+.signup-again {
+    margin-top: 25px;
+}
+
+.signin-again {
+    margin-top: 10px;
+}
+
+.signin-again a {
+    text-decoration: none;
+}
+
+.contacts a {
+    text-decoration: none;
+}
+
+.img-responsive {
+    width: 100px;
+    height: 150px;
+}
+
+.download-file {
+    width: 50px;
+    height: 50px;
+    /*position: fixed;*/
+    float: right;
+}
+
+.delete-file {
+    width: 43px;
+    height: 30px;
+    float: right;
+    margin-top: 7px;
+}
+
+.block-task {
+    position: relative;
+}
+
+.table td {
+    word-wrap: break-word;
+}
+
+.book-h1 {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.button-right-corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}

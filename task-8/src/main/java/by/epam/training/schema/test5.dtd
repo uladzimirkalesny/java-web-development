@@ -1,0 +1,16 @@
+<!ELEMENT event (heading+, external-link+, doc-level+)>
+<!ELEMENT heading (#PCDATA)>
+<!ELEMENT external-link (#PCDATA)>
+<!ELEMENT doc-level (doc-level*, para+, h1*)>
+<!ELEMENT para (#PCDATA|date|image|list-item|num)>
+<!ELEMENT h1 (#PCDATA)>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT image EMPTY>
+<!ELEMENT list-item (#PCDATA|para?)>
+<!ELEMENT num (#PCDATA)>
+<!ATTLIST event id CDATA #REQUIRED>
+<!ATTLIST heading type CDATA (title|title-footer) #REQUIRED>
+<!ATTLIST external-link source CDATA #REQUIRED>
+<!ATTLIST doc-level position (right|left|center|centered) #IMPLIED type #IMPLIED redbox>
+<!ATTLIST para type (text|comment|image|unordered-list|num) #REQUIRED style (square|circle) #IMPLIED>
+<!ATTLIST image source CDATA #REQUIRED description CDATA #REQUIRED>

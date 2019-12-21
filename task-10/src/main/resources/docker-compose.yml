@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql
+    ports:
+      - 8083:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./script.sql:/docker-entrypoint-initdb.d/script.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: library
+      MYSQL_PASSWORD: root
+    restart: always
