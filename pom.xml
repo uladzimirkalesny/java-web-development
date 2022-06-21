@@ -39,7 +39,7 @@
         <dockerfile-maven-plugin.version>1.4.12</dockerfile-maven-plugin.version>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
         <devFullName>Uladzimir Kalesny</devFullName>
-        <mysql-connector-java.version>8.0.15</mysql-connector-java.version>
+        <mysql-connector-java.version>8.0.28</mysql-connector-java.version>
         <docker-compose-maven-plugin.version>2.5.1</docker-compose-maven-plugin.version>
         <docker-maven-plugin.version>0.31.0</docker-maven-plugin.version>
     </properties>
